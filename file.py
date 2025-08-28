@@ -17,4 +17,15 @@ def file_read_write():
         with open(new_filename, "w") as outfile:
             outfile.write(modified_content)
 
+
         print(f"Modified content has been written to '{new_filename}'")
+
+    except FileNotFoundError:
+        print(f"Error: The file '{filename}' does not exist.")
+    except PermissionError:
+        print(f"Error: You don’t have permission to read '{filename}'.")
+    except Exception as e:
+        print(f"An unexpected error occurred: {e}")
+
+# Run the function
+file_read_write()
